@@ -8,7 +8,7 @@ class MaiinomScreen extends StatefulWidget {
 }
 
 class _MaiinomScreenState extends State<MaiinomScreen> {
-  List<String> selectedItems = []; // List to store selected items
+  List<String> selectedItems = [];
 
   // Function to navigate to the next screen with selected item
   void navigateToNextScreen(String item) {
@@ -39,45 +39,46 @@ class _MaiinomScreenState extends State<MaiinomScreen> {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-              // crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Maiinom",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40,
-                      color: Colors.green), // Adjust the font size as needed
-                ),
-                SizedBox(
-                  height: 80,
-                ),
-                buildItemButton('Tubig', 10),
-                SizedBox(
-                  height: 30,
-                ),
-                buildItemButton('BJ', 25),
-                SizedBox(
-                  height: 30,
-                ),
-                buildItemButton('CokeMismo', 20),
-                SizedBox(
-                  height: 30,
-                ),
-                buildItemButton('SpriteMismo', 20),
-                SizedBox(
-                  height: 30,
-                ),
-                buildItemButton('RoyalMismo', 20),
-                SizedBox(
-                  height: 30,
-                ),
-                buildItemButton('C2', 18),
-                SizedBox(
-                  height: 30,
-                ),
-              ]),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Maiinom",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                  color: Colors.green,
+                ), // Adjust the font size as needed
+              ),
+              SizedBox(
+                height: 80,
+              ),
+              buildItemButton('BJ', 25),
+              SizedBox(
+                height: 30,
+              ),
+              buildItemButton('C2', 15),
+              SizedBox(
+                height: 30,
+              ),
+              buildItemButton('Coke', 10),
+              SizedBox(
+                height: 30,
+              ),
+              buildItemButton('Yakult', 15),
+              SizedBox(
+                height: 30,
+              ),
+              buildItemButton('Cobra', 25),
+              SizedBox(
+                height: 30,
+              ),
+              buildItemButton('Royal', 20),
+              SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -91,7 +92,7 @@ class _MaiinomScreenState extends State<MaiinomScreen> {
       child: TextButton(
         onPressed: () {
           // Navigate to the next screen with selected item
-          navigateToNextScreen('$item - $price php');
+          navigateToNextScreen(item);
         },
         child: Text(
           '$item - $price php',
@@ -108,7 +109,7 @@ class _MaiinomScreenState extends State<MaiinomScreen> {
   }
 }
 
-class SelectedItemScreen extends StatelessWidget {
+class SelectedItemScreen extends StatefulWidget {
   final List<String> selectedItems;
   final Color backgroundColor; // Background color
 
@@ -118,20 +119,32 @@ class SelectedItemScreen extends StatelessWidget {
   });
 
   @override
+  _SelectedItemScreenState createState() => _SelectedItemScreenState();
+}
+
+class _SelectedItemScreenState extends State<SelectedItemScreen> {
+  // Function to handle clearing selected items
+  void clearSelectedItems() {
+    setState(() {
+      widget.selectedItems.clear(); // Clear selected items list
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Selected Items'),
       ),
       body: Container(
-        color: backgroundColor, // Set background color
+        color: widget.backgroundColor, // Set background color
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Show selected items in a column
               Column(
-                children: selectedItems
+                children: widget.selectedItems
                     .map((item) => Container(
                           width: 300,
                           padding: EdgeInsets.all(16),
@@ -155,7 +168,7 @@ class SelectedItemScreen extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Navigate back to the previous screen
+                  // Navigate back to the selection screen
                   Navigator.pop(context);
                 },
                 child: Text('Add Another Item'),
@@ -166,6 +179,14 @@ class SelectedItemScreen extends StatelessWidget {
                   // Handle making an order
                 },
                 child: Text('Make an Order'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // Clear selected items
+                  clearSelectedItems();
+                },
+                child: Text('Clear Selected Items'),
               ),
             ],
           ),

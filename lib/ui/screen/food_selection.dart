@@ -30,7 +30,7 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "MENU NI ENER",
+                "MENU NI ACE",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,

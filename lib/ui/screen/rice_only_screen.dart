@@ -97,7 +97,7 @@ class _RiceOnlyScreenState extends State<RiceOnlyScreen> {
   }
 }
 
-class SelectedItemScreen extends StatelessWidget {
+class SelectedItemScreen extends StatefulWidget {
   final List<String> selectedItems;
   final Color backgroundColor; // Background color
 
@@ -107,20 +107,40 @@ class SelectedItemScreen extends StatelessWidget {
   });
 
   @override
+  _SelectedItemScreenState createState() => _SelectedItemScreenState();
+}
+
+class _SelectedItemScreenState extends State<SelectedItemScreen> {
+  List<String> _selectedItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedItems.addAll(widget.selectedItems);
+  }
+
+  // Function to handle clearing selected items
+  void clearSelectedItems() {
+    setState(() {
+      _selectedItems.clear(); // Clear selected items list
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Selected Items'),
       ),
       body: Container(
-        color: backgroundColor, // Set background color
+        color: widget.backgroundColor, // Set background color
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Show selected items in a column
               Column(
-                children: selectedItems
+                children: _selectedItems
                     .map((item) => Container(
                           width: 300,
                           padding: EdgeInsets.all(16),
@@ -144,7 +164,7 @@ class SelectedItemScreen extends StatelessWidget {
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Navigate back to the previous screen
+                  // Navigate back to the selection screen
                   Navigator.pop(context);
                 },
                 child: Text('Add Another Item'),
@@ -155,6 +175,14 @@ class SelectedItemScreen extends StatelessWidget {
                   // Handle making an order
                 },
                 child: Text('Make an Order'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // Clear selected items
+                  clearSelectedItems();
+                },
+                child: Text('Clear Selected Items'),
               ),
             ],
           ),
