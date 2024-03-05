@@ -26,6 +26,14 @@ class _RiceOnlyScreenState extends State<RiceOnlyScreen> {
     );
   }
 
+  // Function to add selected items to the cart
+  void addToCart() {
+    // Add selected items to the cart
+    // You can customize this function based on your requirements
+    // For demonstration, I'm just printing the selected items
+    print('Items added to cart: $selectedItems');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +82,7 @@ class _RiceOnlyScreenState extends State<RiceOnlyScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Java Rice', 35),
+                  buildItemButton(context, 'Java Rice', 50),
                 ],
               ),
               SizedBox(height: 50),
@@ -87,6 +95,28 @@ class _RiceOnlyScreenState extends State<RiceOnlyScreen> {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add selected items to the cart
+          if (selectedItems.isNotEmpty) {
+            addToCart();
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => CartScreen(selectedItems: selectedItems),
+              ),
+            );
+          } else {
+            // Show a SnackBar if no items are selected
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Please select items to add to the cart!'),
+              ),
+            );
+          }
+        },
+        child: Icon(Icons.shopping_cart),
       ),
     );
   }
@@ -113,6 +143,29 @@ class _RiceOnlyScreenState extends State<RiceOnlyScreen> {
             color: Colors.green.shade700,
           ), // Adjust the font size as needed
         ),
+      ),
+    );
+  }
+}
+
+class CartScreen extends StatelessWidget {
+  final List<String> selectedItems;
+
+  const CartScreen({Key? key, required this.selectedItems}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cart'),
+      ),
+      body: ListView.builder(
+        itemCount: selectedItems.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(selectedItems[index]),
+          );
+        },
       ),
     );
   }
@@ -238,7 +291,7 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
                   // Navigate back to the selection screen
                   Navigator.pop(context);
                 },
-                child: Text('Add Another Item'),
+                child: Text('Add another food to cart'),
               ),
               SizedBox(height: 20),
               ElevatedButton(
