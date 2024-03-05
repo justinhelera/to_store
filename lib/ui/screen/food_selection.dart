@@ -30,7 +30,7 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "MENU NI ACE",
+                "MENU NI ENER",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                     );
                   },
                   child: Text(
-                    'Ulam with Rice',
+                    'Rice with Dish',
                     style: TextStyle(
                         fontSize: 20,
                         color: Colors.white), // Adjust the font size as needed
@@ -77,7 +77,7 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                     );
                   },
                   child: Text(
-                    'Ulam Only',
+                    'Dish Only',
                     style: TextStyle(
                         fontSize: 20,
                         color: Colors.white), // Adjust the font size as needed
@@ -127,7 +127,7 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                     );
                   },
                   child: Text(
-                    'Maiinom',
+                    'Drinks',
                     style: TextStyle(
                         fontSize: 20,
                         color: Colors.white), // Adjust the font size as needed
@@ -152,7 +152,7 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                     );
                   },
                   child: Text(
-                    'Panghimagas',
+                    'Desserts',
                     style: TextStyle(
                         fontSize: 20,
                         color: Colors.white), // Adjust the font size as needed
