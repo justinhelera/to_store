@@ -6,7 +6,7 @@ import 'package:testfile/ui/screen/ulam_only_screen.dart';
 import 'package:testfile/ui/screen/ulam_rice_screen.dart';
 
 class FoodSelectionScreen extends StatefulWidget {
-  const FoodSelectionScreen({super.key});
+  const FoodSelectionScreen({Key? key}) : super(key: key);
 
   @override
   State<FoodSelectionScreen> createState() => _FoodSelectionScreenState();
@@ -16,159 +16,209 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightGreenAccent,
+      backgroundColor:
+          Colors.transparent, // Set scaffold background color to transparent
       appBar: AppBar(
-        title: Text(
-          'To-Store',
-        ),
+        title: Text('To-Store'),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "MENU NI ENER",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40,
-                    color: Colors.green), // Adjust the font size as needed
-              ),
-              SizedBox(
-                height: 100,
-              ),
-              Container(
-                width: 350,
-                color: Colors.green,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const UlamRiceScreen()),
-                    );
-                  },
-                  child: Text(
-                    'Rice with Dish',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white), // Adjust the font size as needed
-                  ),
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.all(16), // Adjust padding as needed
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 350,
-                color: Colors.green,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const UlamOnlyScreen()),
-                    );
-                  },
-                  child: Text(
-                    'Dish Only',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white), // Adjust the font size as needed
-                  ),
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.all(16), // Adjust padding as needed
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 350,
-                color: Colors.green,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const RiceOnlyScreen()),
-                    );
-                  },
-                  child: Text(
-                    'Rice Only',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white), // Adjust the font size as needed
-                  ),
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.all(16), // Adjust padding as needed
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 350,
-                color: Colors.green,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MaiinomScreen()),
-                    );
-                  },
-                  child: Text(
-                    'Drinks',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white), // Adjust the font size as needed
-                  ),
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.all(16), // Adjust padding as needed
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 350,
-                color: Colors.green,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const PanghimagasScreen()),
-                    );
-                  },
-                  child: Text(
-                    'Desserts',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white), // Adjust the font size as needed
-                  ),
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.all(16), // Adjust padding as needed
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-            ],
+      body: Stack(
+        children: [
+          // Background Image
+          Positioned.fill(
+            child: Image.asset(
+              'assets/img.png', // Replace 'assets/img.png' with your image asset path
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-      ),
+          SingleChildScrollView(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 30),
+                  Text(
+                    "ENER'S FOODHUB",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(height: 100),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(150, 95, 200, 20),
+                        borderRadius: BorderRadius.circular(30.00),
+                        border: Border.all(
+                          color: Colors.green.shade800,
+                          width: 6,
+                        )),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UlamRiceScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Rice with Dish',
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.all(16),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(150, 95, 200, 20),
+                        borderRadius: BorderRadius.circular(30.00),
+                        border: Border.all(
+                          color: Colors.green.shade800,
+                          width: 6,
+                        )),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const UlamOnlyScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Ulam only',
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.all(16),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(150, 95, 200, 20),
+                        borderRadius: BorderRadius.circular(30.00),
+                        border: Border.all(
+                          color: Colors.green.shade800,
+                          width: 6,
+                        )),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RiceOnlyScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Rice Only',
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.all(16),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(150, 95, 200, 20),
+                        borderRadius: BorderRadius.circular(30.00),
+                        border: Border.all(
+                          color: Colors.green.shade800,
+                          width: 6,
+                        )),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MaiinomScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Drinks',
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.all(16),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Container(
+                    width: 350,
+                    height: 80,
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(150, 95, 200, 20),
+                        borderRadius: BorderRadius.circular(30.00),
+                        border: Border.all(
+                          color: Colors.green.shade800,
+                          width: 6,
+                        )),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PanghimagasScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Desserts',
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                        ),
+                      ),
+                      style: TextButton.styleFrom(
+                        padding: EdgeInsets.all(16),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                ],
+              ),
+            ),
+          ),
+        ], // Closing the children property of Stack widget
+      ), // Closing the Stack widget
     );
   }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: FoodSelectionScreen(),
+  ));
 }

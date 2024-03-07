@@ -60,20 +60,14 @@ class _MaiinomScreenState extends State<MaiinomScreen> {
                 ), // Adjust the font size as needed
               ),
               Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Set the border color here
-                    width: 1, // Set the border width here
-                  ),
-                ),
                 child: Column(
                   children: [
                     SizedBox(height: 50),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        buildItemButton(context, 'Water', 60),
-                        buildItemButton(context, 'BJ', 60),
+                        buildItemButton(context, 'Water', 10),
+                        buildItemButton(context, 'BJ', 25),
                       ],
                     ),
                   ],
@@ -83,16 +77,16 @@ class _MaiinomScreenState extends State<MaiinomScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'C2', 50),
-                  buildItemButton(context, 'Calamansi Juice', 35),
+                  buildItemButton(context, 'C2', 15),
+                  buildItemButton(context, 'Calamansi Juice', 20),
                 ],
               ),
               SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Coke', 60),
-                  buildItemButton(context, 'Yakult', 60),
+                  buildItemButton(context, 'Coke', 20),
+                  buildItemButton(context, 'Yakult', 15),
                 ],
               ),
             ],

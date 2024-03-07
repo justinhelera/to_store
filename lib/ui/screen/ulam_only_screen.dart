@@ -60,20 +60,14 @@ class _UlamOnlyScreenState extends State<UlamOnlyScreen> {
                 ), // Adjust the font size as needed
               ),
               Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Set the border color here
-                    width: 1, // Set the border width here
-                  ),
-                ),
                 child: Column(
                   children: [
                     SizedBox(height: 50),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        buildItemButton(context, 'Adobo', 60),
-                        buildItemButton(context, 'Sinigang', 60),
+                        buildItemButton(context, 'Adobo', 40),
+                        buildItemButton(context, 'Sinigang', 40),
                       ],
                     ),
                   ],
@@ -83,7 +77,7 @@ class _UlamOnlyScreenState extends State<UlamOnlyScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Chicken', 50),
+                  buildItemButton(context, 'Chicken', 35),
                   buildItemButton(context, 'Siomai', 35),
                 ],
               ),
@@ -91,8 +85,8 @@ class _UlamOnlyScreenState extends State<UlamOnlyScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Giniling', 60),
-                  buildItemButton(context, 'Dinuguan', 60),
+                  buildItemButton(context, 'Giniling', 40),
+                  buildItemButton(context, 'Dinuguan', 40),
                 ],
               ),
             ],
@@ -180,7 +174,7 @@ class SelectedItemScreen extends StatefulWidget {
 
   const SelectedItemScreen({
     required this.selectedItems,
-    this.backgroundColor = Colors.white, // Default background color
+    this.backgroundColor = Colors.green, // Default background color
   });
 
   @override

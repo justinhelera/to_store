@@ -39,8 +39,16 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: FlutterLogo(
-          size: 200,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: 20),
+            Icon(
+              Icons.facebook,
+              size: 500,
+              color: Colors.blue,
+            ),
+          ],
         ),
       ),
     );

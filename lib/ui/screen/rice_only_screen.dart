@@ -60,19 +60,13 @@ class _RiceOnlyScreenState extends State<RiceOnlyScreen> {
                 ), // Adjust the font size as needed
               ),
               Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Set the border color here
-                    width: 1, // Set the border width here
-                  ),
-                ),
                 child: Column(
                   children: [
                     SizedBox(height: 50),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        buildItemButton(context, 'Plain Rice', 60),
+                        buildItemButton(context, 'Plain Rice', 10),
                       ],
                     ),
                   ],
@@ -82,14 +76,14 @@ class _RiceOnlyScreenState extends State<RiceOnlyScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Java Rice', 50),
+                  buildItemButton(context, 'Java Rice', 15),
                 ],
               ),
               SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Fried Rice', 60),
+                  buildItemButton(context, 'Fried Rice', 15),
                 ],
               ),
             ],

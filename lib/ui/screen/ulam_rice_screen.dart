@@ -21,6 +21,8 @@ class _UlamRiceScreenState extends State<UlamRiceScreen> {
         builder: (context) => SelectedItemScreen(
           selectedItems: selectedItems,
           backgroundColor: Colors.green, // Pass background color
+          backgroundImageAsset:
+              'assets/background_image.jpg', // Background image asset path
         ),
       ),
     );
@@ -60,12 +62,6 @@ class _UlamRiceScreenState extends State<UlamRiceScreen> {
                 ), // Adjust the font size as needed
               ),
               Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Set the border color here
-                    width: 1, // Set the border width here
-                  ),
-                ),
                 child: Column(
                   children: [
                     SizedBox(height: 50),
@@ -177,11 +173,14 @@ class CartScreen extends StatelessWidget {
 class SelectedItemScreen extends StatefulWidget {
   final List<String> selectedItems;
   final Color backgroundColor; // Background color
+  final String backgroundImageAsset; // Background image asset path
 
   const SelectedItemScreen({
+    Key? key,
     required this.selectedItems,
-    this.backgroundColor = Colors.white, // Default background color
-  });
+    this.backgroundColor = Colors.green, // Pass background color
+    required this.backgroundImageAsset, // Background image asset path
+  }) : super(key: key);
 
   @override
   _SelectedItemScreenState createState() => _SelectedItemScreenState();
@@ -248,7 +247,13 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
         title: Text('Selected Items'),
       ),
       body: Container(
-        color: widget.backgroundColor, // Set background color
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+                widget.backgroundImageAsset), // Set background image from asset
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

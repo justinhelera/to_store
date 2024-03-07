@@ -60,20 +60,14 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
                 ), // Adjust the font size as needed
               ),
               Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Set the border color here
-                    width: 1, // Set the border width here
-                  ),
-                ),
                 child: Column(
                   children: [
                     SizedBox(height: 50),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        buildItemButton(context, 'Maruya', 60),
-                        buildItemButton(context, 'Turon', 60),
+                        buildItemButton(context, 'Maruya', 15),
+                        buildItemButton(context, 'Turon', 10),
                       ],
                     ),
                   ],
@@ -83,16 +77,16 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Pancake', 50),
-                  buildItemButton(context, 'GrahamBalls', 35),
+                  buildItemButton(context, 'Pancake', 10),
+                  buildItemButton(context, 'GrahamBalls', 5),
                 ],
               ),
               SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'IceCream', 60),
-                  buildItemButton(context, 'Lumpia', 60),
+                  buildItemButton(context, 'IceCream', 20),
+                  buildItemButton(context, 'Lumpia', 10),
                 ],
               ),
             ],
