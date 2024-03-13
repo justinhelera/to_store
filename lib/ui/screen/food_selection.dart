@@ -16,12 +16,18 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Colors.transparent, // Set scaffold background color to transparent
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: Text('To-Store'),
+        backgroundColor: Colors.green.shade800,
+        title: Text(
+          'To-Store',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
       ),
+
       body: Stack(
         children: [
           // Background Image
@@ -43,7 +49,8 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 40,
-                      color: Colors.white,
+                      color: Colors.black,
+                      fontStyle: FontStyle.italic,
                     ),
                   ),
                   SizedBox(height: 100),
@@ -69,8 +76,9 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                       child: Text(
                         'Rice with Dish',
                         style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       style: TextButton.styleFrom(
@@ -101,8 +109,9 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                       child: Text(
                         'Ulam only',
                         style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       style: TextButton.styleFrom(
@@ -133,8 +142,9 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                       child: Text(
                         'Rice Only',
                         style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       style: TextButton.styleFrom(
@@ -165,8 +175,9 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                       child: Text(
                         'Drinks',
                         style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       style: TextButton.styleFrom(
@@ -197,8 +208,9 @@ class _FoodSelectionScreenState extends State<FoodSelectionScreen> {
                       child: Text(
                         'Desserts',
                         style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                       style: TextButton.styleFrom(

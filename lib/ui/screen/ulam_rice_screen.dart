@@ -21,8 +21,6 @@ class _UlamRiceScreenState extends State<UlamRiceScreen> {
         builder: (context) => SelectedItemScreen(
           selectedItems: selectedItems,
           backgroundColor: Colors.green, // Pass background color
-          backgroundImageAsset:
-              'assets/background_image.jpg', // Background image asset path
         ),
       ),
     );
@@ -41,6 +39,7 @@ class _UlamRiceScreenState extends State<UlamRiceScreen> {
     return Scaffold(
       backgroundColor: Colors.yellow.shade100,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
         title: Text(
           'To-Store',
         ),
@@ -68,8 +67,8 @@ class _UlamRiceScreenState extends State<UlamRiceScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        buildItemButton(context, 'Adobo\nwith\nKanin', 60),
-                        buildItemButton(context, 'Sinigang\nwith\nKanin', 60),
+                        buildItemButton(context, 'Adobo with Kanin', 40),
+                        buildItemButton(context, 'Sinigang with Kanin', 40),
                       ],
                     ),
                   ],
@@ -79,16 +78,16 @@ class _UlamRiceScreenState extends State<UlamRiceScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Chicken\nwith\nKanin', 50),
-                  buildItemButton(context, 'Siomai\nwith\nKanin', 35),
+                  buildItemButton(context, 'Chicken with Kanin', 35),
+                  buildItemButton(context, 'Siomai with Kanin', 35),
                 ],
               ),
               SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buildItemButton(context, 'Giniling\nwith\nKanin', 60),
-                  buildItemButton(context, 'Dinuguan\nwith\nKanin', 60),
+                  buildItemButton(context, 'Giniling with Kanin', 40),
+                  buildItemButton(context, 'Dinuguan with Kanin', 40),
                 ],
               ),
             ],
@@ -121,7 +120,8 @@ class _UlamRiceScreenState extends State<UlamRiceScreen> {
   }
 
   // Function to build item button
-  Widget buildItemButton(BuildContext context, String item, double price) {
+  Widget buildItemButton(BuildContext context, String item, double price,
+      [Color? white]) {
     return Container(
       decoration: BoxDecoration(
         color: Color.fromARGB(150, 95, 200, 20),
@@ -173,14 +173,11 @@ class CartScreen extends StatelessWidget {
 class SelectedItemScreen extends StatefulWidget {
   final List<String> selectedItems;
   final Color backgroundColor; // Background color
-  final String backgroundImageAsset; // Background image asset path
 
   const SelectedItemScreen({
-    Key? key,
     required this.selectedItems,
-    this.backgroundColor = Colors.green, // Pass background color
-    required this.backgroundImageAsset, // Background image asset path
-  }) : super(key: key);
+    this.backgroundColor = Colors.green, // Default background color
+  });
 
   @override
   _SelectedItemScreenState createState() => _SelectedItemScreenState();
@@ -247,13 +244,7 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
         title: Text('Selected Items'),
       ),
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-                widget.backgroundImageAsset), // Set background image from asset
-            fit: BoxFit.cover,
-          ),
-        ),
+        color: widget.backgroundColor, // Set background color
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -363,7 +354,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             ),
             SizedBox(height: 20),
             Text(
-              'Selected Items:',
+              'Selected food:',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 10),
@@ -392,6 +383,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 );
               },
               child: Text('Place Order'),
+            ),
+            SizedBox(height: 10), // Add some space between the buttons
+            TextButton(
+              onPressed: () {
+                // Navigate back to the food selection screen
+                Navigator.pop(context);
+              },
+              child: Text('Back to selected item'),
             ),
           ],
         ),

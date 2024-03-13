@@ -39,7 +39,7 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
     return Scaffold(
       backgroundColor: Colors.yellow.shade100,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'To-Store',
         ),
         centerTitle: true,
@@ -50,7 +50,7 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Rice with Dish",
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -62,7 +62,7 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
               Container(
                 child: Column(
                   children: [
-                    SizedBox(height: 50),
+                    const SizedBox(height: 50),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -73,7 +73,7 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -81,7 +81,7 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
                   buildItemButton(context, 'GrahamBalls', 5),
                 ],
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -107,13 +107,13 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
           } else {
             // Show a SnackBar if no items are selected
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
+              const SnackBar(
                 content: Text('Please select items to add to the cart!'),
               ),
             );
           }
         },
-        child: Icon(Icons.shopping_cart),
+        child: const Icon(Icons.shopping_cart),
       ),
     );
   }
@@ -122,7 +122,7 @@ class _PanghimagasScreenState extends State<PanghimagasScreen> {
   Widget buildItemButton(BuildContext context, String item, double price) {
     return Container(
       decoration: BoxDecoration(
-        color: Color.fromARGB(150, 95, 200, 20),
+        color: const Color.fromARGB(150, 95, 200, 20),
         borderRadius: BorderRadius.circular(20.00),
         border: Border.all(color: Colors.green.shade800, width: 8),
       ),
@@ -154,7 +154,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cart'),
+        title: const Text('Cart'),
       ),
       body: ListView.builder(
         itemCount: selectedItems.length,
@@ -205,8 +205,8 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Confirm Order"),
-          content: Text("Are you sure you want to make this order?"),
+          title: const Text("Confirm Order"),
+          content: const Text("Are you sure you want to make this order?"),
           actions: [
             TextButton(
               onPressed: () {
@@ -221,13 +221,13 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
                   ),
                 );
               },
-              child: Text('Confirm'),
+              child: const Text('Confirm'),
             ),
             TextButton(
               onPressed: () {
                 Navigator.pop(context); // Close the dialog
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
           ],
         );
@@ -239,7 +239,7 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Selected Items'),
+        title: const Text('Selected Items'),
       ),
       body: Container(
         color: widget.backgroundColor, // Set background color
@@ -252,7 +252,7 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
                 children: widget.selectedItems
                     .map((item) => Container(
                           width: 300,
-                          padding: EdgeInsets.all(16),
+                          padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
                             color: Colors.lightBlueAccent,
                             borderRadius: BorderRadius.circular(10),
@@ -264,13 +264,14 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
                           ),
                           child: Text(
                             'Selected Item: $item',
-                            style: TextStyle(fontSize: 20, color: Colors.black),
+                            style: const TextStyle(
+                                fontSize: 20, color: Colors.black),
                             textAlign: TextAlign.center,
                           ),
                         ))
                     .toList(),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               TextField(
                 controller: _controller, // Assign the controller
                 onChanged: (value) {
@@ -278,34 +279,34 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
                     customerName = value; // Update customer name
                   });
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Customer Name',
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   // Navigate back to the selection screen
                   Navigator.pop(context);
                 },
-                child: Text('Add another food to cart'),
+                child: const Text('Add another food to cart'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   // Handle making an order
                   makeOrder(context);
                 },
-                child: Text('Make an Order'),
+                child: const Text('Make an Order'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   // Clear selected items
                   widget.selectedItems.clear();
                   Navigator.pop(context);
                 },
-                child: Text('Clear Selected Items'),
+                child: const Text('Clear Selected Items'),
               ),
             ],
           ),
@@ -336,7 +337,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Order Details'),
+        title: const Text('Order Details'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -346,26 +347,26 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             TextField(
               readOnly: true,
               controller: TextEditingController(text: widget.customerName),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Customer Name',
               ),
             ),
-            SizedBox(height: 20),
-            Text(
-              'Selected Items:',
+            const SizedBox(height: 20),
+            const Text(
+              'Selected food:',
               style: TextStyle(fontSize: 20),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: widget.selectedItems
                   .map((item) => Text(
                         '- $item',
-                        style: TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16),
                       ))
                   .toList(),
             ),
-            Spacer(),
+            const Spacer(),
             ElevatedButton(
               onPressed: () {
                 // Place order
@@ -375,12 +376,20 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 });
                 // Show a SnackBar to indicate the order was successfully placed
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
+                  const SnackBar(
                     content: Text('Order successfully placed!'),
                   ),
                 );
               },
-              child: Text('Place Order'),
+              child: const Text('Place Order'),
+            ),
+            const SizedBox(height: 10), // Add some space between the buttons
+            TextButton(
+              onPressed: () {
+                // Navigate back to the food selection screen
+                Navigator.pop(context);
+              },
+              child: const Text('Back to selected item'),
             ),
           ],
         ),
@@ -390,7 +399,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 }
 
 void main() {
-  runApp(MaterialApp(
-    home: PanghimagasScreen(),
+  runApp(const MaterialApp(
+    home: OrderDetailsScreen(selectedItems: [], customerName: ''),
   ));
 }

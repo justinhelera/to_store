@@ -349,7 +349,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             ),
             SizedBox(height: 20),
             Text(
-              'Selected Items:',
+              'Selected food:',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 10),
@@ -379,6 +379,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               },
               child: Text('Place Order'),
             ),
+            SizedBox(height: 10), // Add some space between the buttons
+            TextButton(
+              onPressed: () {
+                // Navigate back to the food selection screen
+                Navigator.pop(context);
+              },
+              child: Text('Back to selected item'),
+            ),
           ],
         ),
       ),
@@ -388,6 +396,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
 void main() {
   runApp(MaterialApp(
-    home: RiceOnlyScreen(),
+    home: const OrderDetailsScreen(selectedItems: [], customerName: ''),
   ));
 }

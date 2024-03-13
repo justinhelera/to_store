@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/providers.dart';
+
 class UlamOnlyScreen extends StatefulWidget {
   const UlamOnlyScreen({Key? key}) : super(key: key);
 
@@ -13,13 +15,15 @@ class _UlamOnlyScreenState extends State<UlamOnlyScreen> {
   // Function to navigate to the next screen with selected item
   void navigateToNextScreen(BuildContext context, String item) {
     setState(() {
-      selectedItems.add(item); // Add selected item to the list
+      selectedItems.add(item);
+      Cart.setData(item);
+      // Add selected item to the list
     });
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => SelectedItemScreen(
-          selectedItems: selectedItems,
+          selectedItems: Cart.getData(),
           backgroundColor: Colors.green, // Pass background color
         ),
       ),
@@ -101,7 +105,7 @@ class _UlamOnlyScreenState extends State<UlamOnlyScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CartScreen(selectedItems: selectedItems),
+                builder: (context) => CartScreen(selectedItems: Cart.getData()),
               ),
             );
           } else {
@@ -352,7 +356,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             ),
             SizedBox(height: 20),
             Text(
-              'Selected Items:',
+              'Selected food:',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 10),
@@ -382,6 +386,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               },
               child: Text('Place Order'),
             ),
+            SizedBox(height: 10), // Add some space between the buttons
+            TextButton(
+              onPressed: () {
+                // Navigate back to the food selection screen
+                Navigator.pop(context);
+              },
+              child: Text('Back to selected item'),
+            ),
           ],
         ),
       ),
@@ -391,6 +403,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
 void main() {
   runApp(MaterialApp(
-    home: UlamOnlyScreen(),
+    home: OrderDetailsScreen(selectedItems: [], customerName: 'John Doe'),
   ));
 }

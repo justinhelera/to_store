@@ -67,7 +67,7 @@ class _MaiinomScreenState extends State<MaiinomScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         buildItemButton(context, 'Water', 10),
-                        buildItemButton(context, 'BJ', 25),
+                        buildItemButton(context, 'BJ', 20),
                       ],
                     ),
                   ],
@@ -352,7 +352,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             ),
             SizedBox(height: 20),
             Text(
-              'Selected Items:',
+              'Selected food:',
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(height: 10),
@@ -382,6 +382,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
               },
               child: Text('Place Order'),
             ),
+            SizedBox(height: 10), // Add some space between the buttons
+            TextButton(
+              onPressed: () {
+                // Navigate back to the food selection screen
+                Navigator.pop(context);
+              },
+              child: Text('Back to selected item'),
+            ),
           ],
         ),
       ),
@@ -391,6 +399,6 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
 void main() {
   runApp(MaterialApp(
-    home: MaiinomScreen(),
+    home: OrderDetailsScreen(selectedItems: [], customerName: ""),
   ));
 }

@@ -2,7 +2,7 @@
     <application
         android:label="testfile"
         android:name="${applicationName}"
-        android:icon="@mipmap/appstore">
+        android:icon="@mipmap/logo">
         <activity
             android:name=".MainActivity"
             android:exported="true"

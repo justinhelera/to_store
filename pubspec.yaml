@@ -37,8 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.6
 
 dev_dependencies:
-  flutter_test:
+  flutter:
     sdk: flutter
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -54,7 +55,6 @@ dev_dependencies:
 flutter:
   assets:
     - assets/img.png
-    - assets/icon_1.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
