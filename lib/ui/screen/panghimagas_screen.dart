@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../core/providers.dart';
+import '../../core/services.dart';
+
 class PanghimagasScreen extends StatefulWidget {
   const PanghimagasScreen({Key? key}) : super(key: key);
 
@@ -276,7 +279,8 @@ class _SelectedItemScreenState extends State<SelectedItemScreen> {
                 controller: _controller, // Assign the controller
                 onChanged: (value) {
                   setState(() {
-                    customerName = value; // Update customer name
+                    customerName = value;
+                    Cart.setData(value); // Update customer name
                   });
                 },
                 decoration: const InputDecoration(
@@ -372,7 +376,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 // Place order
                 // You can add your code here to process the order
                 setState(() {
-                  orderPlaced = true; // Set orderPlaced to true
+                  orderPlaced = true;
+                  PostMenuOrder().insertOrder(
+                      item: [],
+                      name: Cart.getName()); // Set orderPlaced to true
                 });
                 // Show a SnackBar to indicate the order was successfully placed
                 ScaffoldMessenger.of(context).showSnackBar(
